@@ -29,8 +29,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: aspyr-backend
-        environment_name: aspyrbackend-qa
+        application_name: aspyr-sam-backend
+        environment_name: aspyrsambackend-qa
         version_label: ${{ steps.app_version.outputs.version }}
         region: ca-central-1
         deployment_package: deploy.zip
