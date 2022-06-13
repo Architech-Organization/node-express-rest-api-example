@@ -1,18 +1,17 @@
 {
-	"AWSEBDockerrunVersion": 2,
-
-	"containerDefinitions": [{
-		"name": "node-express-rest-api",
-		"image": "node:16",
-		"essential": true,
-        "entryPoint": [
-            "entrypoint.sh"
-        ],
-		"memory": 128,
-		"portMappings": [{
-			"containerPort": 8000,
-			"hostPort": 6600
-		}],
-		"workingDirectory": "/usr/src/app"
-	}]
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+		{
+			"name": "node-express-rest-api",
+			"image": "rachithaarchi/node-docker-eb",
+			"essential": true,
+			"memory": 512,
+			"portMappings": [
+			  {
+				"containerPort": 8000,
+				"hostPort": 8081
+			  }
+			]
+		}
+    ]
 }

@@ -1,0 +1,36 @@
+name: Deploy backend
+
+on:
+  push:
+    branches:
+      - elastic-beanstalk-poc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*'
+
+    - name: Get the branch name and commit hash
+      id: app_version
+      run: |
+        git_hash=$(git rev-parse --short "$GITHUB_SHA")
+        git_branch=${GITHUB_REF#refs/heads/}
+        app_version="${git_branch}-${git_hash}"
+        echo "::set-output name=version::$(app_version)"
+
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v20
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: single-instance-node-bean-stalk
+        environment_name: Singleinstancenodebeanstalk-dev
+        version_label: ${{ steps.app_version.outputs.version }}
+        region: ca-central-1
+        deployment_package: deploy.zip
