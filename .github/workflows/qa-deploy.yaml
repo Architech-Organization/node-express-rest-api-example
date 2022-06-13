@@ -24,9 +24,6 @@ jobs:
         app_version="${git_branch}-${git_hash}"
         echo "::set-output name=version::$app_version"
 
-    - name: steps output
-      run: echo ${{ steps.app_version.outputs.version }}
-
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
       with:
