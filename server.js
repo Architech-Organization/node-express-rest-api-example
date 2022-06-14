@@ -1,6 +1,6 @@
 var express = require("express")
 var app = express()
-var db = require("./ddb_createtable.js")
+var db = require("./ddb.js")
 var md5 = require("md5")
 
 var bodyParser = require("body-parser");
@@ -12,7 +12,7 @@ var HTTP_PORT = 8000
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
-    console.log("Running on localhost:<forwarded-port>")
+    console.log("Running on localhost:8080")
 });
 
 app.get("/api/users", (req, res, next) => {
