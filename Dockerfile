@@ -16,7 +16,7 @@ COPY . .
 EXPOSE 5000
 
 CMD ["node", "server.js"]
-#ENTRYPOINT ["/bin/bash", "-c", "npm start"]
+
 
 
 
