@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY node-app/package.json ./package.json
 
+RUN npm install express
+
 RUN npm install
 
 # For production
