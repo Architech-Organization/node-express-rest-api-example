@@ -4,7 +4,7 @@
 		{
 		  "name": "nginx-proxy-conf",
 		  "host": {
-			"sourcePath": "/var/app/current/proxy/conf.d"
+			"sourcePath": "/var/app/current/nginx-proxy-conf/conf.d"
 		  }
 		}  
 	],
@@ -13,7 +13,13 @@
 			"name": "node-express-rest-api",
 			"image": "005449736555.dkr.ecr.ca-central-1.amazonaws.com/aspyr-backend-node:latest-staging",
 			"essential": true,
-			"memory": 512
+			"memory": 512,
+			"portMappings": [
+				{
+				  "hostPort": 8000,
+				  "containerPort": 8000
+				}
+			]
 		},
 		{
 			"name": "nginx-proxy",
