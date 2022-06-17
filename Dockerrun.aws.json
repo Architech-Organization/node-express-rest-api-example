@@ -2,12 +2,6 @@
 	"AWSEBDockerrunVersion": 2,
 	"volumes": [
 	  {
-		"name": "node-app",
-		"host": {
-			"sourcePath": "/var/app/current/node-app"
-		}
-	  },
-	  {
 		"name": "nginx-proxy-conf",
 		"host": {
 		  "sourcePath": "/var/app/current/nginx-proxy-conf/conf.d"
@@ -19,14 +13,7 @@
 		"name": "node-app",
 		"image": "005449736555.dkr.ecr.ca-central-1.amazonaws.com/aspyr-backend-node:latest-staging",
 		"essential": true,
-		"memory": 512,
-		"mountPoints": [
-			{
-			  "sourceVolume": "node-app",
-			  "containerPath": "/usr/src/app",
-			  "readOnly": true
-			}
-		]
+		"memory": 512
 	  },
 	  {
 		"name": "nginx-proxy",
@@ -43,11 +30,6 @@
 		  "node-app"
 		],
 		"mountPoints": [
-		  {
-			"sourceVolume": "node-app",
-			"containerPath": "/usr/src/app",
-			"readOnly": true
-		  },
 		  {
 			"sourceVolume": "nginx-proxy-conf",
 			"containerPath": "/etc/nginx/conf.d",
