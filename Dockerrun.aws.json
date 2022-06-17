@@ -31,11 +31,6 @@
 		],
 		"mountPoints": [
 		  {
-			"sourceVolume": "node-app",
-			"containerPath": "/usr/src/app",
-			"readOnly": true
-		  },
-		  {
 			"sourceVolume": "nginx-proxy-conf",
 			"containerPath": "/etc/nginx/conf.d",
 			"readOnly": true
