@@ -4,7 +4,7 @@
 	  {
 		"name": "node-app",
 		"host": {
-			"sourcePath": "/var/app/current/node-app"
+			"sourcePath": "/var/app/current/"
 		}
 	  },
 	  {
