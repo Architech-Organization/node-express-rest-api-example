@@ -13,7 +13,7 @@ COPY . .
 
 EXPOSE 8000
 
-ENTRYPOINT ["/bin/bash", "-c", "npm start"]
+ENTRYPOINT ["/bin/bash", "-c", "ls -lah"]
 
 
 
