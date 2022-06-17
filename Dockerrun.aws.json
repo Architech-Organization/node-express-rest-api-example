@@ -26,7 +26,7 @@
 			  "containerPath": "/usr/src/app",
 			  "readOnly": true
 			}
-		  ]
+		]
 	  },
 	  {
 		"name": "nginx-proxy",
