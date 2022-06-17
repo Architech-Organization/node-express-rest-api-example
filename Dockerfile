@@ -11,7 +11,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8081
+EXPOSE 8000
 
 ENTRYPOINT ["/bin/bash", "-c", "npm start"]
 
