@@ -1,5 +1,13 @@
 {
     "AWSEBDockerrunVersion": 2,
+	"volumes": [
+		{
+		  "name": "nginx-proxy-conf",
+		  "host": {
+			"sourcePath": "/var/app/current/proxy/conf.d"
+		  }
+		}  
+	],
     "containerDefinitions": [
 		{
 			"name": "node-express-rest-api",
@@ -8,10 +16,36 @@
 			"memory": 512,
 			"portMappings": [
 			  {
-				"containerPort": 8000,
+				"containerPort": 80,
 				"hostPort": 8080
 			  }
 			]
+		},
+		{
+			"name": "nginx-proxy",
+			"image": "nginx",
+			"essential": true,
+			"memory": 256,
+			"portMappings": [
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			],
+			"links": [
+				"node-express-rest-api"
+			],
+			"mountPoints": [
+				{
+					"sourceVolume": "nginx-proxy-conf",
+          			"containerPath": "/etc/nginx/conf.d",
+          			"readOnly": true
+				},
+				{
+					"sourceVolume": "awseb-logs-nginx-proxy",
+					"containerPath": "/var/log/nginx"
+				}
+			]		
 		}
     ]
 }
