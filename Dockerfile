@@ -1,17 +1,16 @@
 FROM node:16
 
+COPY /node-app /usr/src/app
+
 WORKDIR /usr/src/app
 
-COPY package.json ./
-
-RUN npm install express
+RUN npm install express --save
 
 RUN npm install
 
 # For production
 # npm ci --only=production
 
-COPY . .
 
 EXPOSE 8000
 
