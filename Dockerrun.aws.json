@@ -16,7 +16,7 @@
 	],
 	"containerDefinitions": [
 	  {
-		"name": "node-express-rest-api",
+		"name": "node-app",
 		"image": "005449736555.dkr.ecr.ca-central-1.amazonaws.com/aspyr-backend-node:latest-staging",
 		"essential": true,
 		"memory": 512,
@@ -40,7 +40,7 @@
 		  }
 		],
 		"links": [
-		  "node-express-rest-api"
+		  "node-app"
 		],
 		"mountPoints": [
 		  {
