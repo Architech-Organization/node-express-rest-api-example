@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var HTTP_PORT = 8000
+var HTTP_PORT = 8080
 
 // Start server
 app.listen(HTTP_PORT, () => {
