@@ -12,7 +12,7 @@ var HTTP_PORT = 8081
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
-    console.log("Running on localhost:8080")
+    console.log("Running on localhost:8081")
 });
 
 app.get("/api/users", (req, res, next) => {
