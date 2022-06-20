@@ -6,6 +6,7 @@ on:
       - elastic-beanstalk-poc
       - nginx
       - private-beanstalk
+      - dynamodb-sdk
 
 jobs:
   build:
