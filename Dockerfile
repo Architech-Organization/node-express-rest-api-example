@@ -15,4 +15,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["node", "s3_upload_file.js"]
+CMD ["node", "server.js"]
